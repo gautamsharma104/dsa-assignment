@@ -1,0 +1,74 @@
+-----------------------------------------------question 1 ---------------------------------------------------------------------------- 
+
+    In place sorting -------
+a)  in place algorithm doesn't use extra space for input manipulation.It practically overrides the input with the output. 
+b)  it needs only O(1) extra space.
+C) insertion sort, bubble sort, heap sort, quicksort are in place sorting algorithm  examples .
+
+out place sorting -------
+a) An out-of-place sorting algorithm needs extra space to put the elements in as it's sorting them.
+b) it needs O(n) extra space .
+c)  merge sort algorithm is an example of out-of-place algorithm 
+
+
+---------------------------------------------question 2-----------------------------------------------------------------
+
+// C++ program for insertion sort
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+void insertionSort(int arr[], int n)
+{
+	int i, key, j;
+	for (i = 1; i < n; i++)
+	{
+		key = arr[i];
+		j = i - 1;
+
+		while (j >= 0 && arr[j] > key)
+		{
+			arr[j + 1] = arr[j];
+			j = j - 1;
+		}
+		arr[j + 1] = key;
+	}
+}
+
+// function to print an array
+
+void printArray(int arr[], int n)
+{
+	int i;
+	for (i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+
+// Driver code
+int main()
+{
+	int arr[] = { 12, 11, 13, 5, 6 };
+	int N = sizeof(arr) / sizeof(arr[0]);
+
+	insertionSort(arr, N);
+	printArray(arr, N);
+
+	return 0;
+}
+
+---->>> At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, 
+        and inserts it there. It repeats until no input elements remain.
+        Sorting is typically done in-place, by iterating up the array, growing the sorted list behind it.
+        
+        
+        
+-----------------------------------question3-----------------------------------------------------------------------------
+
+Quick sort, heap sort, and insertion sort are in-place sorting algorithms, whereas an additional space of O(n)
+is required in order to merge two sorted arrays.
+
+ Merge-sort is an example of not-in-place sorting.
+
+
