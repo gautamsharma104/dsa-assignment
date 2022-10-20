@@ -65,7 +65,21 @@ int main()
         
         
 -----------------------------------question3-----------------------------------------------------------------------------
+These are simple sorting algorithms that works similar to the way you sort playing cards in 
 
+your hands. The array is virtually split into a sorted and an unsorted part. Values from the 
+unsorted part are picked and placed at the correct position in the sorted part.
+One more real-world example of these algorithms is how tailors arrange shirts in a cupboard, 
+they always keep them in sorted order of size and thus insert new shirts at the right position very 
+quickly by moving other shirts forward to keep the right place for a new shirt.
+ The contact list in your phone is sorted, which means you can easily 
+access your desired contact from your phone since the data is 
+arranged in that manner for you. In other words, “it is sorted”.
+While shopping on flip kart or amazon, you sort items based on your 
+choice, that is, price low to high or high to low.
+The app docker on your phone is an easily relate-able example.
+
+Other examples are:-
 Quick sort, heap sort, and insertion sort are in-place sorting algorithms, whereas an additional space of O(n)
 is required in order to merge two sorted arrays.
 
