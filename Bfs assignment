@@ -1,0 +1,86 @@
+#sorted array to binary search tree
+class Node1(object):
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+
+def arraytobst(arraynums):
+    if not arraynums:
+        return None
+    mid = len(arraynums)//2
+    node = Node1(arraynums[mid])
+    node.left = arraytobst(arraynums[:mid])
+    node.right = arraytobst(arraynums[mid+1:])
+    return node
+
+def preOrder(node): 
+    if not node: 
+        return      
+    print(node.key)
+    preOrder(node.left) 
+    preOrder(node.right)   
+
+arraynums = [11,56,77,89,99]
+
+print("Original array:")
+print(arraynums)
+result = arraytobst(arraynums)
+print("\nArray to a height balanced BST:")
+print(preOrder(result))
+
+
+arraynums.pop()
+print("Deleting the last element from array-",arraynums)
+
+class TreeNode(object):
+    def __init__(self, x):
+         self.val = x
+         self.left = None
+         self.right = None
+
+def delete_Node(root, key):
+ 
+	if not root: 
+		return root
+	
+	if root.val > key: 
+		root.left = delete_Node(root.left, key)
+	# Find the node in right subtree if key value is greater than root value, 
+	elif root.val < key: 
+		root.right= delete_Node(root.right, key)
+	# Delete the node if root.value == key
+	else: 
+	# If there is no right children delete the node and new root would be root.left
+		if not root.right:
+			return root.left
+		
+		if not root.left:
+			return root.right
+
+		temp_val = root.right
+		mini_val = temp_val.val
+		while temp_val.left:
+			temp_val = temp_val.left
+			mini_val = temp_val.val
+  # Delete the minimum node in right subtree
+		root.right = deleteNode(root.right,root.val)
+	return root
+
+def preOrder(node): 
+    if not node: 
+        return      
+    print(node.val)
+    preOrder(node.left) 
+    preOrder(node.right)   
+    
+root = TreeNode(11)  
+root.left = TreeNode(56)  
+root.right = TreeNode(77) 
+root.left.left = TreeNode(89)  
+root.left.right = TreeNode(99)  
+print("Original node:")
+print(preOrder(root))
+result = delete_Node(root, 77)
+print("After deleting specified node:")
+print(preOrder(result))
